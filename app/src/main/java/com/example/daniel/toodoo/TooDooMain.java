@@ -195,9 +195,13 @@ public class TooDooMain extends AppCompatActivity {
             if (lhs.length() > 8 && rhs.length() > 8) {
                 if (lhs.substring(0, 6).matches("([0-9]{2})/([0-9]{2})/")
                         & rhs.substring(0, 6).matches("([0-9]{2})/([0-9]{2})/")) {
-                    return lhs.substring(6).compareTo(
-                            rhs.substring(6)
-                    );
+                    if (!(lhs.substring(6, 8).matches(rhs.substring(6, 8)))) {
+                        return lhs.substring(6).compareTo(
+                                rhs.substring(6)
+                        );
+                    } else {
+                        return lhs.compareTo(rhs);
+                    }
                 }
             }
             return lhs.compareTo(rhs);
